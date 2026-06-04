@@ -4,7 +4,7 @@ export { Footer } from './Footer'
 
 // Hero & Landing
 export { HeroSection } from './HeroSection'
-export { Cube3D } from './Cube3D'
+export { ImmersiveVideo } from './ImmersiveVideo'
 
 // Services & Features
 export { ServicesSection } from './ServicesSection'
