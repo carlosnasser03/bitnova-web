@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from './Button'
+import { ImmersiveVideo } from './ImmersiveVideo'
 import { hero, cta, stats } from '@/config/content'
 
 export function HeroSection() {
@@ -115,6 +116,16 @@ export function HeroSection() {
               </div>
             </div>
           </motion.div>
+        </motion.div>
+
+        {/* Immersive Video */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="w-full mt-16 max-w-4xl mx-auto"
+        >
+          <ImmersiveVideo />
         </motion.div>
 
       </div>
