@@ -6,21 +6,25 @@ import { cta } from '@/config/content'
 
 export function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+    <section className="py-section-gap px-gutter bg-tech-dark-deep">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="max-w-4xl mx-auto text-center"
       >
-        <h2 className="text-4xl lg:text-5xl font-black mb-6">
+        <h2 className="font-headline-lg text-headline-lg mb-6 text-on-surface">
           ¿Listo para Transformarte?
         </h2>
-        <p className="text-xl mb-10 opacity-90">
-          Solicita una consulta gratuita y descubre cómo podemos ayudarte a crecer
+        <p className="font-body-lg text-body-lg text-on-surface-variant font-medium mb-10">
+          Solicita una consulta gratuita y descubre cómo podemos ayudarte a crecer exponencialmente
         </p>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button variant="primary" size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+          <Button
+            variant="primary"
+            size="lg"
+            className="shadow-[0_0_30px_rgba(0,229,255,0.2)]"
+          >
             {cta.primary}
           </Button>
         </motion.div>

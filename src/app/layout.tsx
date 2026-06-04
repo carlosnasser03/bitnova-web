@@ -9,6 +9,14 @@ const hankenGrotesk = Hanken_Grotesk({ subsets: ['latin'], weight: ['600', '700'
 const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600'] })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], weight: ['500', '700'] })
 
+// Material Symbols font link to be added in head
+const materialSymbolsLink = (
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+  />
+)
+
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
