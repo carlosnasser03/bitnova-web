@@ -10,9 +10,13 @@ interface ImmersiveCoreProps {
 
 export function Cube3D({ width = '100%', height = '500px' }: ImmersiveCoreProps) {
   return (
-    // El contenedor debe tener cursor-grab para incitar a interactuar
-    <div style={{ width, height }} className="relative z-20 cursor-grab active:cursor-grabbing">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+    <div
+      style={{ width, height }}
+      className="relative z-20 cursor-grab active:cursor-grabbing bg-gradient-to-b from-tech-dark-surface/20 to-tech-dark-deep/50 rounded-xl border border-tech-dark-border overflow-hidden"
+      role="img"
+      aria-label="Esfera 3D interactiva con efecto de distorsión e iluminación dinámica"
+    >
+      <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, 1.5]}>
 
         {/* Iluminación base */}
         <ambientLight intensity={0.5} />

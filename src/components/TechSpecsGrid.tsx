@@ -38,7 +38,7 @@ export function TechSpecsGrid() {
           El Motor Central
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-gutter min-h-[600px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-gutter min-h-auto md:min-h-[600px]">
           {/* CI/CD Feed - 2 columns, 2 rows */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

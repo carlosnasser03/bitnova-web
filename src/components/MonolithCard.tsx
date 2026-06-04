@@ -33,11 +33,19 @@ export function MonolithCard({ title, description, icon, label, imageSrc }: Mono
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`${title}: ${description}`}
       style={{
         transform: `perspective(1000px) rotateX(${transform.rotateX}deg) rotateY(${transform.rotateY}deg) translateZ(10px)`,
         transition: 'transform 0.3s ease-out',
       }}
-      className="relative group aspect-[3/4] bg-tech-dark-surface border border-tech-dark-border rounded-xl overflow-hidden cursor-pointer shadow-nova-glow hover:shadow-[0_0_40px_rgba(0,229,255,0.3)]"
+      className="relative group aspect-[3/4] md:aspect-auto bg-tech-dark-surface border border-tech-dark-border rounded-xl overflow-hidden cursor-pointer shadow-nova-glow hover:shadow-[0_0_40px_rgba(0,229,255,0.3)] focus:outline-none focus:ring-2 focus:ring-primary-container focus:ring-offset-2 focus:ring-offset-tech-dark-deep"
     >
       {/* Background Image with Gradient */}
       {imageSrc && (

@@ -31,7 +31,7 @@ export function HeroSection() {
       {/* Tech grid background */}
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
 
-      <div className="relative z-10 max-w-container-max mx-auto px-gutter h-screen flex flex-col items-center justify-center">
+      <div className="relative z-10 max-w-container-max mx-auto px-gutter min-h-screen flex flex-col items-center justify-center py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,27 +39,36 @@ export function HeroSection() {
           className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary-container/20 bg-nova-blue-dim mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_#00e5ff]" />
-          <span className="font-status-label text-status-label text-primary-container tracking-widest uppercase">Estado del Sistema: Óptimo</span>
+          <span className="font-status-label text-status-label text-primary-container tracking-widest uppercase text-xs sm:text-sm">
+            Estado: Óptimo
+          </span>
         </motion.div>
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-center max-w-4xl mx-auto"
+          className="text-center max-w-4xl mx-auto w-full"
         >
           <motion.h1
             variants={itemVariants}
-            className="font-headline-xl text-headline-xl mb-6 leading-none text-on-surface"
+            className="font-headline-lg-mobile sm:font-headline-lg lg:font-headline-xl text-headline-lg-mobile sm:text-headline-lg lg:text-headline-xl mb-6 leading-tight sm:leading-none text-on-surface"
           >
-            {hero.title} <span className="text-primary-container inline-block">{hero.subtitle}</span>
+            {hero.title}{' '}
+            <span className="text-primary-container block sm:inline-block">{hero.subtitle}</span>
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="font-body-lg text-body-lg text-on-surface-variant font-medium mb-10 max-w-2xl mx-auto">
+          <motion.p
+            variants={itemVariants}
+            className="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant font-medium mb-10 max-w-2xl mx-auto px-2"
+          >
             {hero.description}
           </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full px-2 sm:px-0"
+          >
             <Button
               variant="primary"
               size="lg"
@@ -71,24 +80,40 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="lg"
+              className="w-full sm:w-auto"
               aria-label="Ver nuestros servicios"
             >
               Ver Arquitectura
             </Button>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="flex justify-center gap-12">
-            <div>
-              <div className="font-headline-md text-headline-md text-primary-container">{stats.projects.number}</div>
-              <div className="font-status-label text-status-label text-on-surface-variant">{stats.projects.label}</div>
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12"
+          >
+            <div className="text-center">
+              <div className="font-headline-md text-headline-md text-primary-container">
+                {stats.projects.number}
+              </div>
+              <div className="font-status-label text-status-label text-on-surface-variant text-xs">
+                {stats.projects.label}
+              </div>
             </div>
-            <div>
-              <div className="font-headline-md text-headline-md text-primary-container">{stats.satisfaction.number}</div>
-              <div className="font-status-label text-status-label text-on-surface-variant">{stats.satisfaction.label}</div>
+            <div className="text-center">
+              <div className="font-headline-md text-headline-md text-primary-container">
+                {stats.satisfaction.number}
+              </div>
+              <div className="font-status-label text-status-label text-on-surface-variant text-xs">
+                {stats.satisfaction.label}
+              </div>
             </div>
-            <div>
-              <div className="font-headline-md text-headline-md text-primary-container">{stats.growth.number}</div>
-              <div className="font-status-label text-status-label text-on-surface-variant">{stats.growth.label}</div>
+            <div className="text-center">
+              <div className="font-headline-md text-headline-md text-primary-container">
+                {stats.growth.number}
+              </div>
+              <div className="font-status-label text-status-label text-on-surface-variant text-xs">
+                {stats.growth.label}
+              </div>
             </div>
           </motion.div>
         </motion.div>
