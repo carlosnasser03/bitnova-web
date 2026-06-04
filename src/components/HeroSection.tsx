@@ -4,142 +4,100 @@ import { motion } from 'framer-motion'
 import { Button } from './Button'
 import { ImmersiveVideo } from './ImmersiveVideo'
 import { hero, cta, stats } from '@/config/content'
+import { heroConfig } from '@/config/hero.config'
 
 export function HeroSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  }
+  const { containerVariants, itemVariants } = heroConfig.contentContainer.animation
 
   return (
-    <section className="relative min-h-screen bg-tech-dark-deep overflow-hidden pt-20">
+    <section className={`relative ${heroConfig.section.minHeight} ${heroConfig.section.bg} ${heroConfig.section.overflow} ${heroConfig.section.padding}`}>
       {/* Tech grid background */}
       <div className="absolute inset-0 bg-tech-grid opacity-20 pointer-events-none" />
 
-      <div className="relative z-10 max-w-container-max mx-auto px-gutter min-h-screen flex flex-col items-center justify-center py-20">
+      <div className={`relative z-10 ${heroConfig.container.maxWidth} mx-auto ${heroConfig.container.padding} ${heroConfig.container.layout} ${heroConfig.container.minHeight} ${heroConfig.container.verticalPadding}`}>
+        {/* Status Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary-container/20 bg-nova-blue-dim mb-8"
+          initial={heroConfig.badge.animation.initial}
+          animate={heroConfig.badge.animation.animate}
+          transition={heroConfig.badge.animation.transition}
+          className={heroConfig.badge.container}
         >
-          <span className="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_8px_#00e5ff]" />
-          <span className="font-status-label text-status-label text-primary-container tracking-widest uppercase text-xs sm:text-sm">
-            Estado: Óptimo
-          </span>
+          <span className={heroConfig.badge.dot} />
+          <span className={heroConfig.badge.text}>Estado: Óptimo</span>
         </motion.div>
 
+        {/* Content Container */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-center max-w-4xl mx-auto w-full"
+          className={heroConfig.contentContainer.layout}
         >
-          <motion.h1
-            variants={itemVariants}
-            className="font-headline-lg-mobile sm:font-headline-lg lg:font-headline-xl text-headline-lg-mobile sm:text-headline-lg lg:text-headline-xl mb-6 leading-tight sm:leading-none text-on-surface"
-          >
+          {/* Title */}
+          <motion.h1 variants={itemVariants} className={heroConfig.title.responsive}>
             {hero.title}{' '}
-            <span className="text-primary-container block sm:inline-block">{hero.subtitle}</span>
+            <span className={`${heroConfig.title.accentColor} block sm:inline-block`}>
+              {hero.subtitle}
+            </span>
           </motion.h1>
 
-          <motion.p
-            variants={itemVariants}
-            className="font-body-md sm:font-body-lg text-body-md sm:text-body-lg text-on-surface-variant font-medium mb-10 max-w-2xl mx-auto px-2"
-          >
+          {/* Description */}
+          <motion.p variants={itemVariants} className={heroConfig.description.text}>
             {hero.description}
           </motion.p>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 w-full px-2 sm:px-0"
-          >
+          {/* Buttons */}
+          <motion.div variants={itemVariants} className={heroConfig.buttons.container}>
             <Button
               variant="primary"
               size="lg"
-              className="w-full sm:w-auto shadow-[0_0_30px_rgba(0,229,255,0.2)]"
-              aria-label="Solicitar consulta gratuita"
+              className={heroConfig.buttons.primary.className}
+              aria-label={heroConfig.buttons.primary.ariaLabel}
             >
               {cta.primary}
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto"
-              aria-label="Ver nuestros servicios"
+              className={heroConfig.buttons.secondary.className}
+              aria-label={heroConfig.buttons.secondary.ariaLabel}
             >
-              Ver Arquitectura
+              {heroConfig.buttons.secondary.text}
             </Button>
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12"
-          >
-            <div className="text-center">
-              <div className="font-headline-md text-headline-md text-primary-container">
-                {stats.projects.number}
+          {/* Stats */}
+          <motion.div variants={itemVariants} className={heroConfig.stats.container}>
+            {[stats.projects, stats.satisfaction, stats.growth].map((stat, idx) => (
+              <div key={idx} className={heroConfig.stats.stat.container}>
+                <div className={heroConfig.stats.stat.number}>{stat.number}</div>
+                <div className={heroConfig.stats.stat.label}>{stat.label}</div>
               </div>
-              <div className="font-status-label text-status-label text-on-surface-variant text-xs">
-                {stats.projects.label}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="font-headline-md text-headline-md text-primary-container">
-                {stats.satisfaction.number}
-              </div>
-              <div className="font-status-label text-status-label text-on-surface-variant text-xs">
-                {stats.satisfaction.label}
-              </div>
-            </div>
-            <div className="text-center">
-              <div className="font-headline-md text-headline-md text-primary-container">
-                {stats.growth.number}
-              </div>
-              <div className="font-status-label text-status-label text-on-surface-variant text-xs">
-                {stats.growth.label}
-              </div>
-            </div>
+            ))}
           </motion.div>
         </motion.div>
 
         {/* Immersive Video */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="w-full mt-16 max-w-4xl mx-auto"
+          initial={heroConfig.video.animation.initial}
+          animate={heroConfig.video.animation.animate}
+          transition={heroConfig.video.animation.transition}
+          className={heroConfig.video.container}
         >
           <ImmersiveVideo />
         </motion.div>
-
       </div>
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 text-outline animate-bounce"
+        className={heroConfig.scrollIndicator.container}
         aria-label="Desplazarse hacia abajo para explorar más"
         role="img"
       >
         <div className="text-center">
-          <p className="text-sm mb-2 text-on-surface-variant">Scroll para explorar</p>
+          <p className={heroConfig.scrollIndicator.text}>Scroll para explorar</p>
           <svg
-            className="w-6 h-6 text-primary-container mx-auto"
+            className={heroConfig.scrollIndicator.icon}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
