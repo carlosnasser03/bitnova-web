@@ -98,14 +98,14 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* 3D Cube */}
+          {/* 3D Core */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="flex justify-center items-center"
+            className="flex justify-center items-center w-full h-[500px]"
           >
-            <Cube3D width={400} height={400} />
+            <Cube3D />
           </motion.div>
         </div>
       </div>
