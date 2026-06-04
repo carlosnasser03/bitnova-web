@@ -11,12 +11,6 @@ const iconMap: Record<string, string> = {
   seguridad: 'security',
 }
 
-const monolithIconMap: Record<string, string> = {
-  'Desarrollo Web': 'language',
-  'SaaS Educativo': 'school',
-  'Seguridad Digital': 'security',
-}
-
 export function ServicesSection() {
   // Map servicios to monolith format
   const monoliths = Object.entries(servicios).map(([key, service]) => ({

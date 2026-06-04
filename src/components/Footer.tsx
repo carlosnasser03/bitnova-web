@@ -1,6 +1,6 @@
 'use client'
 
-import { siteConfig, cta } from '@/config/content'
+import { siteConfig } from '@/config/content'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()

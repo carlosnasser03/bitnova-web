@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Cube3D } from './Cube3D'
 import { Button } from './Button'
 import { hero, cta, stats } from '@/config/content'
 
