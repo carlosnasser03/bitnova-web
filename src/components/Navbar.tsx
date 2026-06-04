@@ -10,48 +10,53 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200"
+      className="fixed top-0 left-0 right-0 z-50 h-20 backdrop-blur-xl border-b border-tech-dark-border bg-surface/80 shadow-[0_0_20px_rgba(0,229,255,0.05)]"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex-shrink-0 font-black text-2xl bg-gradient-to-r from-blue-600 to-orange-500 bg-clip-text text-transparent"
+      <div className="max-w-container-max mx-auto px-gutter h-full flex items-center justify-between">
+        {/* Logo */}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          className="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface"
+        >
+          {siteConfig.name}
+        </motion.div>
+
+        {/* Navigation Links */}
+        <div className="hidden md:flex items-center gap-8 font-body-md text-body-md">
+          <motion.a
+            href="#servicios"
+            whileHover={{ color: '#c3f5ff' }}
+            className="text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 transition-transform"
           >
-            {siteConfig.name}
-          </motion.div>
-
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-8">
-            <motion.a
-              href="#servicios"
-              whileHover={{ color: '#3b82f6' }}
-              className="text-gray-700 font-medium transition"
-            >
-              Servicios
-            </motion.a>
-            <motion.a
-              href="#por-que"
-              whileHover={{ color: '#3b82f6' }}
-              className="text-gray-700 font-medium transition"
-            >
-              Por Qué Nosotros
-            </motion.a>
-            <motion.a
-              href="#contacto"
-              whileHover={{ color: '#3b82f6' }}
-              className="text-gray-700 font-medium transition"
-            >
-              Contacto
-            </motion.a>
-          </div>
-
-          {/* CTA Button */}
-          <Button variant="primary" size="sm">
-            {cta.primary}
-          </Button>
+            Soluciones
+          </motion.a>
+          <motion.a
+            href="#arquitectura"
+            whileHover={{ color: '#c3f5ff' }}
+            className="text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 transition-transform"
+          >
+            Arquitectura
+          </motion.a>
+          <motion.a
+            href="#rendimiento"
+            whileHover={{ color: '#c3f5ff' }}
+            className="text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 transition-transform"
+          >
+            Rendimiento
+          </motion.a>
+          <motion.a
+            href="#contacto"
+            whileHover={{ color: '#c3f5ff' }}
+            className="text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 transition-transform"
+          >
+            Nosotros
+          </motion.a>
         </div>
+
+        {/* CTA Button */}
+        <Button variant="primary" size="sm">
+          {cta.primary}
+        </Button>
       </div>
     </motion.nav>
   )

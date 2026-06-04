@@ -1,110 +1,61 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card } from './Card'
-import { servicios, segments } from '@/config/content'
+import { MonolithCard } from './MonolithCard'
 
 export function ServicesSection() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+  const monoliths = [
+    {
+      title: 'SaaS',
+      description: 'Sistemas ensamblados en entornos blindados para garantizar que cada bloque de datos sea preciso y seguro.',
+      icon: 'cloud_done',
+      label: 'LANZAR SISTEMA',
     },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
+    {
+      title: 'Arquitectura',
+      description: 'Diseños de red con precisión tesseract para una estabilidad multidimensional y redundancia total.',
+      icon: 'architecture',
+      label: 'EXPLORAR PLANOS',
     },
-  }
+    {
+      title: 'Rendimiento',
+      description: 'Optimización radical de latencia mediante flujos de datos optimizados en el núcleo central.',
+      icon: 'speed',
+      label: 'MOTOR DE BENCHMARK',
+    },
+  ]
 
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-section-gap relative px-gutter bg-tech-dark-deep">
+      <div className="max-w-container-max mx-auto">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl lg:text-5xl font-black text-slate-900 mb-6">
-            Nuestros 3 Pilares
-          </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Especialización profunda en tres áreas que impulsan el crecimiento empresarial
-          </p>
-        </motion.div>
+        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+          <div className="max-w-xl">
+            <h2 className="font-headline-lg text-headline-lg text-on-surface mb-4">
+              Estructuras Hiperconectadas
+            </h2>
+            <p className="font-body-md text-body-md text-on-surface-variant font-medium">
+              Nuestros sistemas se ensamblan dentro de domos blindados transparentes, asegurando que cada bloque de datos esté diseñado con precisión para una estabilidad multidimensional y protección absoluta.
+            </p>
+          </div>
+          <div className="font-status-label text-status-label text-primary-container tracking-widest">
+            MÓDULO_v4.0.2 // ESTABLE
+          </div>
+        </div>
 
-        {/* Services Cards */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
-        >
-          {Object.entries(servicios).map(([key, service]) => (
-            <motion.div key={key} variants={itemVariants}>
-              <Card className="h-full">
-                <div className="flex items-start gap-4">
-                  <div className="text-4xl">
-                    {key === 'web' && '💻'}
-                    {key === 'saas' && '🎓'}
-                    {key === 'seguridad' && '🔐'}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                    <p className="text-slate-600 mb-6">{service.description}</p>
-                    <ul className="space-y-2" aria-label={`Beneficios de ${service.title}`}>
-                      {service.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm text-slate-700">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full" aria-hidden="true" />
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </Card>
+        {/* Monolith Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 monolith-perspective">
+          {monoliths.map((monolith) => (
+            <motion.div
+              key={monolith.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <MonolithCard {...monolith} />
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Segments */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mt-20 pt-20 border-t-2 border-slate-200"
-        >
-          <h3 className="text-3xl font-bold text-slate-900 mb-12 text-center">
-            Soluciones por Industria
-          </h3>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            className="grid grid-cols-2 md:grid-cols-3 gap-6"
-          >
-            {Object.values(segments).map((segment) => (
-              <motion.div key={segment.name} variants={itemVariants}>
-                <Card className="text-center h-full">
-                  <div className="text-5xl mb-4">{segment.icon}</div>
-                  <h4 className="text-xl font-bold text-slate-900 mb-2">{segment.name}</h4>
-                  <p className="text-sm text-slate-600 mb-4">{segment.pain}</p>
-                  <p className="text-sm text-blue-600 font-semibold">{segment.solution}</p>
-                </Card>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

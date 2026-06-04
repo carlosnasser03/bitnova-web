@@ -20,12 +20,12 @@ export function Button({
   disabled,
   'aria-label': ariaLabel,
 }: ButtonProps) {
-  const baseStyles = 'font-semibold rounded-lg transition-all duration-300 cursor-pointer'
+  const baseStyles = 'font-semibold rounded-lg transition-all duration-300 cursor-pointer active:scale-95'
 
   const variants = {
-    primary: 'bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:shadow-lg hover:scale-105',
-    secondary: 'bg-orange-500 text-white hover:bg-orange-600 hover:scale-105',
-    outline: 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50',
+    primary: 'bg-primary-container text-on-primary-fixed hover:shadow-[0_0_30px_rgba(0,229,255,0.2)] hover:scale-105',
+    secondary: 'bg-tertiary-container text-on-tertiary hover:bg-tertiary hover:scale-105',
+    outline: 'border border-tech-dark-border text-on-surface hover:bg-nova-blue-dim hover:text-primary-container transition-colors',
   }
 
   const sizes = {
