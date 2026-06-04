@@ -4,7 +4,7 @@ export { Footer } from './Footer'
 
 // Hero & Landing
 export { HeroSection } from './HeroSection'
-export { ImmersiveVideo } from './ImmersiveVideo'
+export { Tesseract3D } from './Tesseract3D'
 
 // Services & Features
 export { ServicesSection } from './ServicesSection'

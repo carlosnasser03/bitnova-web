@@ -55,7 +55,7 @@ export function MonolithCard({ title, description, icon, label, imageSrc }: Mono
       )}
 
       {/* Scanline Effect */}
-      <div className="absolute inset-0 w-full h-2 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-20" />
+      <div className="absolute inset-0 w-full h-2 bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-20 animate-scan" />
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-tech-dark-deep via-transparent to-transparent" />
