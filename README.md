@@ -1,118 +1,90 @@
-# 🚀 Bitnova Web - Página Inmersiva
+# Bitnova Labs - Sitio Web Premium
 
-Página web de Bitnova Labs con animaciones fluidas (Framer Motion) + elementos 3D (Three.js).
+Sitio web moderno y de alto rendimiento para Bitnova Labs, construido con Next.js 14, React, TypeScript, Tailwind CSS, Framer Motion y Three.js. Integra el diseño **Stitch** con arquitectura **Tech Dark** y animaciones avanzadas.
 
-## 📁 Estructura
+## 🎯 Características
 
-```
-bitnova-web/
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx      (Layout principal)
-│   │   ├── page.tsx        (Página home)
-│   │   └── globals.css     (Estilos globales)
-│   ├── components/
-│   │   ├── HeroSection.tsx (Sección hero con cubo 3D)
-│   │   ├── ServicesSection.tsx (3 pilares + 6 segmentos)
-│   │   ├── Button.tsx      (Botón reutilizable)
-│   │   ├── Card.tsx        (Card reutilizable)
-│   │   └── Cube3D.tsx      (Cubo 3D con Three.js)
-│   └── config/
-│       └── content.ts      (Contenido centralizado - MODIFICA AQUÍ)
-├── public/assets/          (Imágenes, iconos, videos)
-├── package.json
-├── tsconfig.json
-├── tailwind.config.js
-└── next.config.js
-```
+- **Diseño Stitch Tech Dark**: Paleta de colores sofisticada con acentos Nova Blue
+- **Animaciones Avanzadas**: Framer Motion para transiciones fluidas
+- **3D Interactivo**: Esfera distorsionada con @react-three/fiber y Three.js
+- **Componentes Reutilizables**: Arquitectura modular y escalable
+- **Responsive Design**: Optimizado para todos los tamaños de pantalla
+- **Accesibilidad**: Cumple con WCAG (aria-labels, semantic HTML, keyboard nav)
+- **Performance**: Code splitting, lazy loading, image optimization
+- **Monolith Cards**: Tarjetas 3D con efecto hover perspective
+- **CI/CD Feed**: Visualización de tiempo real de estados
+- **Binary Stream**: Animación de código binario flotante
 
-## 🚀 Instalación Rápida
+## 🚀 Inicio Rápido
+
+### Requisitos
+- Node.js 18+ 
+- npm o yarn
+
+### Instalación
 
 ```bash
-# 1. Entra a la carpeta
-cd "C:\Users\cavilez\Desktop\Proyectos\Pagina web\bitnova-web"
-
-# 2. Instala dependencias
+# Instalar dependencias
 npm install
 
-# 3. Ejecuta servidor dev
-npm run dev
+# Copiar variables de entorno
+cp .env.example .env.local
 
-# 4. Abre en navegador
-# http://localhost:3000
+# Iniciar servidor de desarrollo
+npm run dev
 ```
 
-## 🎨 Features
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-✅ **Hero Section Inmersiva**
-- Cubo 3D rotativo (Three.js)
-- Animaciones fluidas de entrada (Framer Motion)
-- Background animado con elementos flotantes
-- Responsive en móvil y desktop
+## 📁 Estructura del Proyecto
 
-✅ **Services Section**
-- 3 Pilares (Web, SaaS Educativo, Seguridad)
-- 6 Segmentos de industria
-- Cards con hover effects
-- Animaciones al scroll
+```
+src/
+├── app/
+│   ├── page.tsx           # Página principal (orquestador)
+│   ├── layout.tsx         # Layout con Navbar y Footer
+│   └── globals.css        # Estilos globales
+├── components/
+│   ├── index.ts           # Exports centralizados
+│   ├── Navbar.tsx         # Navegación principal
+│   ├── Footer.tsx         # Pie de página
+│   ├── HeroSection.tsx    # Sección hero
+│   ├── Cube3D.tsx         # Esfera 3D interactiva
+│   ├── ServicesSection.tsx # Tarjetas de servicios
+│   ├── MonolithCard.tsx   # Componente tarjeta 3D
+│   ├── TechSpecsGrid.tsx  # Grid de especificaciones técnicas
+│   ├── BinaryStreamBackground.tsx # Fondo animado
+│   ├── RadicalAccountabilityCTA.tsx # Sección CTA
+│   ├── CTASection.tsx     # Otra sección CTA
+│   ├── Button.tsx         # Botón reutilizable
+│   └── Card.tsx           # Card reutilizable
+├── config/
+│   └── content.ts         # Contenido centralizado
+├── lib/
+│   └── animations.ts      # Variantes de animación reutilizables
+└── public/                # Assets estáticos
+```
 
-✅ **Marketing Integrado**
-- Copywriting persuasivo (contenido en `content.ts`)
-- CTAs claras y visibles
-- Messaging por segmento
-- ROI calculado
+## 🎨 Paleta de Colores Stitch
 
-✅ **Tecnología**
-- Next.js 14+ (App Router)
-- TypeScript
-- Tailwind CSS
-- Framer Motion (animaciones)
-- Three.js (3D)
-- Responsive Design
+### Tech Dark Theme
+- **Profundo**: `#020617` (tech-dark-deep)
+- **Surface**: `#0F172A` (tech-dark-surface)
+- **Border**: `#1E293B` (tech-dark-border)
 
-## 📝 Modificar Contenido
+### Nova Blue (Primary)
+- **Principal**: `#00e5ff` (nova-blue)
+- **Tenue**: `rgba(0, 229, 255, 0.15)` (nova-blue-dim)
 
-**TODO está en `src/config/content.ts`**
-
-Edita ahí para cambiar:
-- Textos del hero
-- Descripciones de servicios
-- Información de segmentos
-- CTAs y contacto
-- **Sin necesidad de tocar código React**
-
-## 🎯 Próximos Pasos
-
-1. **Portfolio Section** - Casos de éxito con antes/después
-2. **Team Section** - Quiénes somos con fotos
-3. **Blog Section** - Artículos de marketing
-4. **Contact Form** - Formulario de contacto integrado
-5. **Integración Supabase** - Backend para formulario
-
-## 📚 Recursos
-
-- [Framer Motion Docs](https://www.framer.com/motion/)
-- [Three.js Docs](https://threejs.org/docs/)
-- [Next.js Docs](https://nextjs.org/docs)
-- [Tailwind Docs](https://tailwindcss.com/docs)
-
-## 💡 Tips
-
-- **Animaciones:** Edita `HeroSection.tsx` y `ServicesSection.tsx` para customizar
-- **Colores:** Edita `tailwind.config.js` para cambiar paleta Bitnova
-- **3D:** Edita `Cube3D.tsx` para modificar cubo (rotation, color, materiales)
-
-## 🚢 Deploy
+## 🔧 Scripts Disponibles
 
 ```bash
-# Build para producción
-npm run build
-
-# Deploy a Vercel (recomendado para Next.js)
-# 1. Conecta repo a Vercel
-# 2. Deploy automático en cada push
+npm run dev      # Iniciar servidor de desarrollo
+npm run build    # Compilar para producción
+npm start        # Iniciar servidor de producción
+npm run lint     # Ejecutar linter
 ```
 
 ---
 
-**Creado con ❤️ por Bitnova Labs**
+**Construido con ❤️ usando Next.js 14 y tecnologías modernas**
