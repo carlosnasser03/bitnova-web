@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { Cube3D } from './Cube3D'
 import { Button } from './Button'
-import { hero, cta } from '@/config/content'
+import { hero, cta, stats } from '@/config/content'
 
 export function HeroSection() {
   const containerVariants = {
@@ -65,26 +65,35 @@ export function HeroSection() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex gap-4">
-              <Button variant="primary" size="lg">
+              <Button
+                variant="primary"
+                size="lg"
+                aria-label="Solicitar consulta gratuita"
+              >
                 {cta.primary}
               </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:bg-opacity-10">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white hover:bg-opacity-10"
+                aria-label="Ver nuestros servicios"
+              >
                 Ver Servicios
               </Button>
             </motion.div>
 
             <motion.div variants={itemVariants} className="mt-12 flex gap-8">
               <div>
-                <div className="text-3xl font-bold text-orange-400">300+</div>
-                <div className="text-sm text-blue-200">Proyectos Completados</div>
+                <div className="text-3xl font-bold text-orange-400">{stats.projects.number}</div>
+                <div className="text-sm text-blue-200">{stats.projects.label}</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-orange-400">98%</div>
-                <div className="text-sm text-blue-200">Satisfacción Cliente</div>
+                <div className="text-3xl font-bold text-orange-400">{stats.satisfaction.number}</div>
+                <div className="text-sm text-blue-200">{stats.satisfaction.label}</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-orange-400">3x</div>
-                <div className="text-sm text-blue-200">Crecimiento Promedio</div>
+                <div className="text-3xl font-bold text-orange-400">{stats.growth.number}</div>
+                <div className="text-sm text-blue-200">{stats.growth.label}</div>
               </div>
             </motion.div>
           </motion.div>
@@ -106,11 +115,19 @@ export function HeroSection() {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        aria-label="Desplazarse hacia abajo para explorar más"
+        role="img"
       >
         <div className="text-white text-center">
           <p className="text-sm mb-2">Scroll para explorar</p>
           <div className="flex justify-center">
-            <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6 text-blue-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </div>

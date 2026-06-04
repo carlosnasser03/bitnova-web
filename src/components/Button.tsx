@@ -8,6 +8,7 @@ interface ButtonProps {
   onClick?: () => void
   className?: string
   disabled?: boolean
+  'aria-label'?: string
 }
 
 export function Button({
@@ -17,6 +18,7 @@ export function Button({
   onClick,
   className,
   disabled,
+  'aria-label': ariaLabel,
 }: ButtonProps) {
   const baseStyles = 'font-semibold rounded-lg transition-all duration-300 cursor-pointer'
 
@@ -38,6 +40,7 @@ export function Button({
       whileTap={{ scale: disabled ? 1 : 0.98 }}
       onClick={onClick}
       disabled={disabled}
+      aria-label={ariaLabel}
       className={clsx(
         baseStyles,
         variants[variant],

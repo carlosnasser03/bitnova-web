@@ -92,6 +92,21 @@ export const servicios = {
   },
 }
 
+export const stats = {
+  projects: {
+    number: "300+",
+    label: "Proyectos Completados",
+  },
+  satisfaction: {
+    number: "98%",
+    label: "Satisfacción Cliente",
+  },
+  growth: {
+    number: "3x",
+    label: "Crecimiento Promedio",
+  },
+}
+
 export const whyUs = {
   title: "¿Por Qué Bitnova?",
   reasons: [

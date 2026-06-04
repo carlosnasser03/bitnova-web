@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { siteConfig } from '@/config/content'
+import { Navbar } from '@/components/Navbar'
+import { Footer } from '@/components/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -24,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="antialiased">
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )

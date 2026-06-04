@@ -61,10 +61,10 @@ export function ServicesSection() {
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900 mb-3">{service.title}</h3>
                     <p className="text-slate-600 mb-6">{service.description}</p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2" aria-label={`Beneficios de ${service.title}`}>
                       {service.benefits.map((benefit, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm text-slate-700">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full" />
+                          <span className="w-2 h-2 bg-blue-500 rounded-full" aria-hidden="true" />
                           {benefit}
                         </li>
                       ))}
